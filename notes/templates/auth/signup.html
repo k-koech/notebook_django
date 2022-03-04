@@ -12,6 +12,15 @@
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Sign up</h2>
+                    <div class="messages ">
+                        {% for message in messages %}
+                            {% if message.tags == "error" %}
+                            <div  class="alert text-danger">{{ message }}</div>
+                            {% else %}
+                            <div  class="alert text-{{ message.tags }}">{{ message }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                     <form method="POST"  action="/signup" method="post" class="register-form" id="register-form">
                         {% csrf_token %}
                         <div class="form-group">

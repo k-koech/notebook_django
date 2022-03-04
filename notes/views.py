@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from notes.models import Users
+import random,string
+from .email import sendpassword
 
 # Create your views here.
 def home(request):
@@ -13,7 +15,7 @@ def signup(request):
         username=request.POST.get('username')
         email=request.POST.get('email')
         password=request.POST.get('pass')
-        re_password=request.POST.get('re-pass')
+        re_password=request.POST.get('re_pass')
 
         username_exist=Users.objects.filter(username=username).count()
         email_exist=Users.objects.filter(email=email).count()
@@ -67,8 +69,29 @@ def signin(request):
     else:
         return render(request, "auth/signin.html")
 
+def signout(request):
+    logout(request)
+    messages.add_message(request, messages.INFO, 'Successfully logged out!')
+    return redirect(signin)
+ 
+
 def resetpassword(request):
-      return render(request, "auth/resetpassword.html")
+    if request.method=="POST":
+        email=request.POST.get('email')
+        generated_password=str(''.join(random.choices(string.ascii_uppercase + string.digits, k = 10)))
+
+        email_exist=Users.objects.filter(email=email).count()
+        if email_exist==0:
+            messages.add_message(request, messages.ERROR, 'Email do not exist!')
+            return redirect(resetpassword)
+        else:
+            username = Users.objects.get(email=email).username
+            sendpassword(username,generated_password,email)
+            messages.add_message(request, messages.SUCCESS, 'New password has been sent to your email!')
+            return redirect(signin)
+
+    else:
+        return render(request, "auth/resetpassword.html")
 
 def dashboard(request):
     return render(request, "dashboard.html")

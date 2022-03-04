@@ -33,7 +33,6 @@ class MyAccountManager(BaseUserManager):
         return user
         
 class Users(AbstractBaseUser):
-    name = models.CharField( max_length=200)  
     username = models.CharField( max_length=200, blank=True)  
     email = models.CharField( max_length=100, unique=True)
     profile_photo = CloudinaryField('image', default='image/upload/v1631717620/default_uomrne.jpg') 
