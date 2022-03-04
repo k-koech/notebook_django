@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+django = "==3.2"
+cloudinary = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
