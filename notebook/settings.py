@@ -18,6 +18,9 @@ ALLOWED_HOSTS = []
 AUTH_MODEL = 'notes.users'
 # Application definition
 
+# Email
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
