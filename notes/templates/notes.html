@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'assets/css/dashboard.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/notes.css' %}">
  <div class="dashboard mt-5 pt-5">
     <div class="container">
 
@@ -13,9 +13,9 @@
         <div class="row">
       
           <div class="col-md-8">
-          {% if notes %}
+      
 
-          {% for note in notes %}
+        
             <article id="" class="bg-light p-3 mb-3">
               <header>
                 <h5 >
@@ -33,18 +33,13 @@
                 </p>
                 <!-- &hellip; -->
                 <div class="text-right bg-light" style="display:flex;justify-content: end;">
-                    <a href="/notes/{{note.id}}" class="btn btn-sm btn-secondary float-right">Read More <span class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                    <a href="/note/{{note.id}}" class="btn btn-sm btn-secondary float-right">Read More <span class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
                 </div>
               </div>
               <footer>
               </footer>
             </article>
-            {% endfor %}
-            {% else %}
-              <div class="alert alert-info mt-5">
-                  You have no notes at the moment
-              </div>
-            {% endif %}
+         
 
       
             <!-- <nav>
