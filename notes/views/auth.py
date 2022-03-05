@@ -4,7 +4,9 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from notes.models import Users
 import random,string
-from .email import sendpassword
+
+from notes.views.notes import dashboard
+from ..email import sendpassword
 
 # Create your views here.
 def home(request):
@@ -87,14 +89,16 @@ def resetpassword(request):
         else:
             username = Users.objects.get(email=email).username
             sendpassword(username,generated_password,email)
+            user = Users.objects.get(email = email)
+            user.password = make_password(generated_password)
+            user.save()
             messages.add_message(request, messages.SUCCESS, 'New password has been sent to your email!')
             return redirect(signin)
 
     else:
         return render(request, "auth/resetpassword.html")
 
-def dashboard(request):
-    return render(request, "dashboard.html")
+
 
 
 

@@ -3,8 +3,8 @@ from django.template.loader import render_to_string
 
 def sendpassword(username,password,receiver):
     # Creating message subject and sender
-    subject = 'Localshop Store Admin Verification'
-    sender = 'localshop.com'
+    subject = 'NoteBook Password Reset'
+    sender = 'Notebook.com'
 
     #passing in the context vairables
     text_content = render_to_string('email/sendpassword.txt',{"username": username, "password":password})
