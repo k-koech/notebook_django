@@ -1,19 +1,19 @@
-body {
+/* body {
   font-family: "Open Sans", sans-serif;
   color: #585a61;
-}
+} */
 
-a {
-  color: #810000;
+/* a {
+  color: #000000;
   text-decoration: none;
-}
+} */
 
 a:hover {
-  color: #740000;
+  /* color: #740000; */
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   font-family: "Raleway", sans-serif;
 }
 
@@ -253,7 +253,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #740000;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #5777ba;
+  /* color: #5777ba; */
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
