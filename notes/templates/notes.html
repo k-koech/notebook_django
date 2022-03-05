@@ -20,7 +20,7 @@
               <header>
                 <h5 >
                   <a class="text-dark" href="">
-                  {{note.title}} </a>
+                  {{notes.title}} </a>
                 </h5>
               </header>
               <div class="entry-content">
@@ -28,31 +28,18 @@
                   <img src="http://placehold.it/750x420" alt="" class="img-responsive" />
                 </a>
                 <p class="lead">
-                    {{note.notes}}
-
+                    {{notes.notes}}
                 </p>
                 <!-- &hellip; -->
                 <div class="text-right bg-light" style="display:flex;justify-content: end;">
-                    <a href="/note/{{note.id}}" class="btn btn-sm btn-secondary float-right">Read More <span class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                  <a href="/delete_notes/{{notes.id}}" class="btn btn-sm btn-outline-danger">Delete</a>
+                  <a href="/update_notes/{{notes.id}}" class="btn btn-sm btn-outline-success mx-3">Edit</a>
                 </div>
               </div>
               <footer>
               </footer>
             </article>
-         
-
-      
-            <!-- <nav>
-              <ul class="pagination">
-                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-              </ul>
-            </nav> -->
+        
       
       
           </div>

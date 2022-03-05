@@ -42,18 +42,18 @@ def update_notes(request, id):
         return render(request, "update_notes.html")
 
 def notes(request, id):
-    if request.method=="POST":
-        title=request.POST.get('title')
-        notes=request.POST.get('description')
-
-        note = Notes()
-        note.title=title
-        note.notes=notes
-        note.user=request.user
-        note.save()                             
-        messages.add_message(request, messages.SUCCESS, 'Registered successfully')
-        return redirect(dashboard)
-
-    else:
         notes = Notes.objects.get(user=request.user, id=id)
         return render(request, "notes.html", {"notes":notes})
+
+def delete_notes(request, id):
+        notes = Notes.objects.get(id=id)
+        notes.delete()
+        messages.add_message(request, messages.SUCCESS, 'Deleted successfully')
+        return redirect(dashboard)
+
+
+def update_notes(request, id):
+        notes = Notes.objects.get(id=id)
+        notes.delete()
+        messages.add_message(request, messages.SUCCESS, 'Updated successfully')
+        return redirect(dashboard)
