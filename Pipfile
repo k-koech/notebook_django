@@ -10,6 +10,7 @@ cloudinary = "*"
 django-on-heroku = "*"
 dj-database-url = "*"
 gunicorn = "*"
+sweetify = "*"
 
 [dev-packages]
 

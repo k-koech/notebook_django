@@ -1,6 +1,7 @@
 {% extends 'includes/base.html' %}
 {% load static %}
 
+
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'assets/css/profile.css' %}">
 
@@ -11,7 +12,6 @@
                     <img src="{{user.profile_photo.url}}" alt=""/>
                     <div class="file btn btn-lg btn-primary" data-toggle="modal" data-target="#profilephoto">
                         Change Photo
-                        <input type="file" name="file"/>
                     </div>
 
                   
@@ -184,15 +184,39 @@
       </div>
     </div>
   </div>
+  <button class=".btn.btn-primary.btn-lg" id="fire">FIREEEEEEEEEEEEEE</button>
+ 
 
-  <script>
-    function savingprofilepic()
-    {
-         swal({
-        title:"Saving",
-        text:"Saving your profile . . .",
-        });
+
+
+
+<script>
+function savingprofilepic()
+{
+    swal({
+    title: 'Profile Photo updated!',
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+    timer: 3000,
+    icon:'success',
+    onOpen: () => {
+      swal.showLoading()
     }
-   </script>
+  }).then(
+    () => {},
+    (dismiss) => {
+      if (dismiss === 'timer') {
+        console.log('closed by timer!!!!');
+        swal({ 
+          title: 'Finished!',
+          type: 'success',
+          timer: 2000,
+          showConfirmButton: false
+        })
+      }
+    }
+  )
+}
+</script>
 
 {% endblock %}
