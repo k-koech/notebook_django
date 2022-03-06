@@ -124,6 +124,14 @@ def profile(request):
                     user.save()
                     messages.add_message(request, messages.SUCCESS, 'Password updated successfully!')
                     return redirect(profile)
+            elif 'update_profilephoto' == request.POST.get('user'): 
+                profile_photo=request.FILES.get('profile_photo')
+
+                user=Users.objects.get(id=request.user.id)
+                user.profile_photo=profile_photo
+                user.save()
+                messages.add_message(request,messages.SUCCESS,"Profile photo updated successfully!")
+                return redirect(profile)
 
     else:
         count_notes = Notes.objects.filter(id=request.user.id).count()
