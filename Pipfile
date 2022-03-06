@@ -9,6 +9,7 @@ django = "==3.2"
 cloudinary = "*"
 django-on-heroku = "*"
 dj-database-url = "*"
+gunicorn = "*"
 
 [dev-packages]
 
