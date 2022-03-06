@@ -20,7 +20,6 @@ def add_notes(request):
         note.save()                             
         messages.add_message(request, messages.SUCCESS, 'Saved')
         return redirect(dashboard)
-
     else:
         return render(request, "add_notes.html")
 
