@@ -18,7 +18,7 @@ def add_notes(request):
         notes=request.POST.get('description')
         note = Notes(title=title, notes=notes, user=request.user)
         note.save()                             
-        messages.add_message(request, messages.SUCCESS, 'Registered successfully')
+        messages.add_message(request, messages.SUCCESS, 'Saved')
         return redirect(dashboard)
 
     else:

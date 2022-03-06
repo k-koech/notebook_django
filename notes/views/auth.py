@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
-from notes.models import Users
+from notes.models import Notes, Users
 import random,string
 from django.contrib.auth.decorators import login_required
 from notes.views.notes import dashboard
@@ -98,7 +98,7 @@ def resetpassword(request):
     else:
         return render(request, "auth/resetpassword.html")
 
-
+"""PROFILE"""
 @login_required(login_url='/signin')
 def profile(request):
     if request.method=="POST":
@@ -126,7 +126,8 @@ def profile(request):
                     return redirect(profile)
 
     else:
-        return render(request, "profile.html")
+        count_notes = Notes.objects.filter(id=request.user.id).count()
+        return render(request, "profile.html", {"count_notes":count_notes})
 
             
            
