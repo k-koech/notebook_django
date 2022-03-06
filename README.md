@@ -1,5 +1,5 @@
 # NOTEBOOK APPLICATION 
-#### The app is a personal gallery app, 05/09/2021
+#### The app is a personal NoteBook app, 06/03/2022
 #### **By Kelvin Kipchumba**
 ## Project Description
     Its a personal NoteBook application that any user can add their notes for future reference.
@@ -25,7 +25,7 @@
   
     
 ## Live link
-Deployed project can be accessed here [Gallery](https://djangogallery.herokuapp.com/)   
+Deployed project can be accessed here [NoteBook](https://notebook-django.herokuapp.com/)   
 
 ## Known Bugs
     The application works perfectly well, no bugs.
