@@ -43,9 +43,11 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
-          <li><a class="nav-link scrollto" href="/dashboard">Dashboard</a></li>
-          <li><a class="nav-link scrollto" href="/add_notes">Add Notes</a></li>
+         
           {% if user.is_authenticated %}
+              <li><a class="nav-link scrollto" href="/dashboard">Dashboard</a></li>
+              <li><a class="nav-link scrollto" href="/add_notes">Add Notes</a></li>
+              <li><a class="nav-link scrollto" href="/profile">Profile</a></li>
               <li><a class="nav-link scrollto" href="signout">Signout</a></li>
           {% else %}
             <li><a class="nav-link scrollto" href="signin">SignIn</a></li>

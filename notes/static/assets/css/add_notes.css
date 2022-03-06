@@ -28,7 +28,7 @@
       width: 50px;
       height: 20px;
       border-radius: 20px;
-      background: #840000;
+      background: #ffffff;
       }
       .form-left-decoration {
       bottom: 60px;
@@ -95,14 +95,14 @@
       margin-top: 20px;
       border-radius: 20px;
       border: none;
-      border-bottom: 4px solid #840000;
-      background: #740000; 
+      border-bottom: 4px solid #160000;
+      background: #070000; 
       font-size: 16px;
       font-weight: 400;
       color: #fff;
       }
       button:hover {
-      background: #740000;
+      background: #0f0505;
       } 
       @media (min-width: 568px) {
       form {

@@ -3,7 +3,7 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'assets/css/dashboard.css' %}">
- <div class="dashboard mt-5 pt-5">
+ <div class="dashboard bg-light mt-5 pt-5">
     <div class="container">
 
         <div class="page-header">
@@ -16,23 +16,23 @@
           {% if notes %}
 
           {% for note in notes %}
-            <article id="" class="bg-light p-3 mb-3">
+            <article id="" class="bg-white p-4 mb-3">
               <header>
                 <h5 >
-                  <a class="text-dark" href="">
+                  <a class="text-dark " href="">
                   {{note.title}} </a>
                 </h5>
               </header>
               <div class="entry-content">
-                <a href="">
+                <!-- <a href="">
                   <img src="http://placehold.it/750x420" alt="" class="img-responsive" />
-                </a>
+                </a> -->
                 <p class="lead">
-                    {{note.notes}}
-
+                    {{note.notes|linebreaks}}
                 </p>
                 <!-- &hellip; -->
-                <div class="text-right bg-light" style="display:flex;justify-content: end;">
+                <div class="text-right" style="display:flex;justify-content: end;">
+                    <span class="mx-2">Created on <i>{{note.date}}</i></span>
                     <a href="/notes/{{note.id}}" class="btn btn-sm btn-secondary float-right">Read More <span class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
                 </div>
               </div>

@@ -4,7 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from notes.models import Users
 import random,string
-
+from django.contrib.auth.decorators import login_required
 from notes.views.notes import dashboard
 from ..email import sendpassword
 
@@ -76,7 +76,7 @@ def signout(request):
     messages.add_message(request, messages.INFO, 'Successfully logged out!')
     return redirect(signin)
  
-
+@login_required(login_url='/signin')
 def resetpassword(request):
     if request.method=="POST":
         email=request.POST.get('email')
@@ -99,8 +99,34 @@ def resetpassword(request):
         return render(request, "auth/resetpassword.html")
 
 
+@login_required(login_url='/signin')
+def profile(request):
+    if request.method=="POST":
+         if 'user' in request.POST:
+            if 'update_password' == request.POST.get('user'): 
+                old_password=request.POST.get('old_password')
+                new_password=request.POST.get('new_password')
+                re_password=request.POST.get('re_password')
+                
+                user = Users.objects.get(id=request.user.id)
+                if user.check_password('{}'.format(old_password)) == False:
+                    messages.add_message(request,messages.ERROR,"Old password is wrong!")
+                    return redirect(profile)
+                elif len(new_password)<4 or len(re_password)<4:
+                    messages.add_message(request,messages.ERROR,"Password too short!")
+                    return redirect(profile)
+                elif new_password!=re_password:
+                    messages.add_message(request,messages.ERROR,"Password doesn't match!")
+                    return redirect(profile)
+                else:
+                    user = Users.objects.get(id=request.user.id)
+                    user.password = make_password(new_password)
+                    user.save()
+                    messages.add_message(request, messages.SUCCESS, 'Password updated successfully!')
+                    return redirect(profile)
 
-
+    else:
+        return render(request, "profile.html")
 
             
            
