@@ -154,11 +154,11 @@ def subscribe(request):
         if user.subscribe == True:
             user.subscribe=False
             user.save()   
+            subscribed(request.user.username, request.user.email) 
             return JsonResponse({"msg":"Registered successfully", "success":"unsubscribed"})
 
 
         else:
             user.subscribe=True
             user.save()  
-            subscribed(request.user.username, request.user.email) 
             return JsonResponse({"msg":"Registered successfully", "success":"subscribed"})
