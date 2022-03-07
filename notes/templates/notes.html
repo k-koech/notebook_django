@@ -3,7 +3,7 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'assets/css/notes.css' %}">
- <div class="dashboard mt-5 pt-5">
+ <div class="notes mt-5 pt-5">
     <div class="container">
 
         <div class="page-header">
@@ -24,11 +24,8 @@
                 </h5>
               </header>
               <div class="entry-content">
-                <a href="">
-                  <img src="http://placehold.it/750x420" alt="" class="img-responsive" />
-                </a>
                 <p class="lead">
-                    {{notes.notes}}
+                    {{notes.notes|linebreaks}}
                 </p>
                 <!-- &hellip; -->
                 <div class="text-right bg-light" style="display:flex;justify-content: end;">

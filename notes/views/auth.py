@@ -130,7 +130,6 @@ def profile(request):
                 user=Users.objects.get(id=request.user.id)
                 user.profile_photo=profile_photo
                 user.save()
-                # messages.add_message(request,messages.SUCCESS,"Profile photo updated successfully!")
                 return redirect(profile)
 
     else:

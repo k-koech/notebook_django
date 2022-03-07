@@ -37,12 +37,12 @@
                   <img src="http://placehold.it/750x420" alt="" class="img-responsive" />
                 </a> -->
                 <p class="lead">
-                    {{note.notes|linebreaks}}
+                    {{note.notes|linebreaks|truncatewords:"15"}}
+                    <a href="/notes/{{note.id}}"  class="text-success">Read more</a>
                 </p>
                 <!-- &hellip; -->
                 <div class="text-right" style="display:flex;justify-content: end;">
                     <span class="mx-2">Created on <i>{{note.date}}</i></span>
-                    <a href="/notes/{{note.id}}" class="btn btn-sm btn-secondary float-right">Read More <span class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
                 </div>
               </div>
               <footer>
