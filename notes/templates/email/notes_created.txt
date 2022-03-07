@@ -1,0 +1,12 @@
+<html>
+    <body>
+      <h5>New notes created</h5>
+      <h6>Hello {{username}}</h6>
+
+      <p>
+         You've successdully created notes with the title <strong>{{title}}</strong>
+      </p>
+
+      <p>This is automatic email. DO NOT REPLY!</p>
+    </body>
+  </html>

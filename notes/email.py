@@ -32,7 +32,7 @@ def notes_created(username,title,receiver):
 
     #passing in the context vairables
     text_content = render_to_string('email/notes_created.txt',{"username": username, "title":title})
-    html_content = render_to_string('email/notes.html',{"username": username, "title":title})
+    html_content = render_to_string('email/notes_created.html',{"username": username, "title":title})
 
     msg = EmailMultiAlternatives(subject,text_content,sender,[receiver])
     msg.attach_alternative(html_content,'text/html')

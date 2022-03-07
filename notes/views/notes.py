@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from notes.email import notes_created
 from notes.models import Notes
 
 @login_required(login_url='/signin')
@@ -15,7 +16,10 @@ def add_notes(request):
         title=request.POST.get('title')
         notes=request.POST.get('description')
         note = Notes(title=title, notes=notes, user=request.user)
-        note.save()                             
+        note.save()    
+        if request.user.subscribe == True:
+            notes_created(request.user.username,title,request.user.email)   
+                                  
         messages.add_message(request, messages.SUCCESS, 'Saved')
         return redirect(dashboard)
     else:
