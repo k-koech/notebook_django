@@ -77,7 +77,6 @@ def signout(request):
     messages.add_message(request, messages.INFO, 'Successfully logged out!')
     return redirect(signin)
  
-@login_required(login_url='/signin')
 def resetpassword(request):
     if request.method=="POST":
         email=request.POST.get('email')
