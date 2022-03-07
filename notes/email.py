@@ -29,7 +29,6 @@ def subscribed(username,receiver):
 def notes_created(username,title,receiver):
     subject = 'Email Subscription'
     sender = 'NoteBook.com'
-
     #passing in the context vairables
     text_content = render_to_string('email/notes_created.txt',{"username": username, "title":title})
     html_content = render_to_string('email/notes_created.html',{"username": username, "title":title})
