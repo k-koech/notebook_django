@@ -37,6 +37,7 @@ class Users(AbstractBaseUser):
     email = models.CharField( max_length=100, unique=True)
     profile_photo = CloudinaryField('image', default='image/upload/v1631717620/default_uomrne.jpg') 
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
+    subscribe = models.BooleanField(default=False)
     last_login = models.DateTimeField(default=dt.datetime.now)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -65,6 +66,5 @@ class Users(AbstractBaseUser):
 class Notes(models.Model):
     title = models.CharField(max_length=50)
     notes = models.CharField(max_length=1000)
-    subscribe = models.BooleanField(default=False)
     user=models.ForeignKey("Users",on_delete=models.CASCADE)
     date = models.DateTimeField(verbose_name='date', auto_now_add=True)

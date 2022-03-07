@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
@@ -131,7 +132,7 @@ def profile(request):
                 user.profile_photo=profile_photo
                 user.save()
                 return redirect(profile)
-                
+
             elif 'subscribe_emails' == request.POST.get('user'): 
                 profile_photo=request.FILES.get('profile_photo')
 
@@ -145,4 +146,18 @@ def profile(request):
         return render(request, "profile.html", {"count_notes":count_notes})
 
             
-           
+@login_required(login_url='/signin')
+def subscribe(request):
+    if request.method=="POST":
+        
+        user = Users.objects.get(id=request.user.id)
+        if user.subscribe == True:
+            user.subscribe=False
+            user.save()   
+            return JsonResponse({"msg":"Registered successfully", "success":"unsubscribed"})
+
+
+        else:
+            user.subscribe=True
+            user.save()   
+            return JsonResponse({"msg":"Registered successfully", "success":"subscribed"})

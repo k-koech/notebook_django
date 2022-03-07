@@ -70,16 +70,11 @@
                                         <label>Receive Emails</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <form action="/profile" method="post" >
-                                            {% csrf_token %}
-                                            <div class="mb-3 form-check">
-                                                <input type="hidden" name="check" value="false" />
-                                                <input type="checkbox" type="submit" class="form-check-input"  name="subscribe">
-                                            </div>
-                                            <button name="user" value="subscribe_emails" type="submit" class="btn btn-primary">Update</button>
-
-                                        </form>
-
+                                        {% if user.subscribe %}
+                                        <input type="checkbox" type="submit"  onclick="subscribe()" class="form-check-input" checked>
+                                        {% else %}
+                                        <input type="checkbox" type="submit"  onclick="subscribe()" class="form-check-input" unchecked>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 
