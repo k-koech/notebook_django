@@ -21,6 +21,7 @@ function subscribe()
                         title: "Success!",
                         text: "Subscribed successfully!",
                         icon: "success",
+                        timer: 5000
                       });
 
                 }
@@ -30,6 +31,7 @@ function subscribe()
                         title: "Success!",
                         text: "Unsubscribed successfully!",
                         icon: "success",
+                        timer: 5000
                       });
                 }
             },

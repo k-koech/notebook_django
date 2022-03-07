@@ -62,7 +62,7 @@ h1, h2, h3 {
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  padding: 15px 0;
+  /* padding: 15px 0; */
   background: rgba(255, 255, 255, 0.95);
 }
 #header.header-transparent {
