@@ -7,7 +7,7 @@ from notes.models import Notes, Users
 import random,string
 from django.contrib.auth.decorators import login_required
 from notes.views.notes import dashboard
-from ..email import sendpassword
+from ..email import sendpassword, subscribed
 
 # Create your views here.
 def home(request):
@@ -159,5 +159,6 @@ def subscribe(request):
 
         else:
             user.subscribe=True
-            user.save()   
+            user.save()  
+            subscribed(request.user.username, request.user.email) 
             return JsonResponse({"msg":"Registered successfully", "success":"subscribed"})

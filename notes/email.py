@@ -14,14 +14,25 @@ def sendpassword(username,password,receiver):
     msg.attach_alternative(html_content,'text/html')
     msg.send()
     
-def clerk_registration_email(id,name,password,receiver):
-    # Creating message subject and sender
-    subject = 'Localshop Clerk Registration'
-    sender = 'localshop.com'
+def subscribed(username,receiver):
+    subject = 'Email Subscription'
+    sender = 'NoteBook.com'
 
     #passing in the context vairables
-    text_content = render_to_string('email/clerk_registration.txt',{"id":id,"name": name, "password":password})
-    html_content = render_to_string('email/clerk_registration.html',{"id":id,"name": name,  "password":password})
+    text_content = render_to_string('email/subscription.txt',{"username": username})
+    html_content = render_to_string('email/subscription.html',{"username": username})
+
+    msg = EmailMultiAlternatives(subject,text_content,sender,[receiver])
+    msg.attach_alternative(html_content,'text/html')
+    msg.send()
+
+def notes_created(username,title,receiver):
+    subject = 'Email Subscription'
+    sender = 'NoteBook.com'
+
+    #passing in the context vairables
+    text_content = render_to_string('email/notes_created.txt',{"username": username, "title":title})
+    html_content = render_to_string('email/notes.html',{"username": username, "title":title})
 
     msg = EmailMultiAlternatives(subject,text_content,sender,[receiver])
     msg.attach_alternative(html_content,'text/html')
