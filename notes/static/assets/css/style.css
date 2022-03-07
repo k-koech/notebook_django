@@ -252,9 +252,9 @@ h1, h2, h3 {
   font-size: 15px;
   color: #740000;
 }
-.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  /* color: #5777ba; */
-}
+/* .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
+   color: #5777ba; 
+} */
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
 }

@@ -36,70 +36,43 @@
               <footer>
               </footer>
             </article>
-        
-      
-      
           </div>
+
           <aside class="col-md-4 p-2 ">
       
-            <div class="well">
-              <h5>Join our Updates</h5>
-              <form class="form-horizontal">
-                <div class="form-group">
-                  <div class="col-sm-12">
-                    <input type="email" class="form-control" value="{{user.email}}" placeholder="Email">
+                <div class="well mt-3  mb-1 float-right" style="display: flex;justify-content: end;">
+                      <a href="/add_notes" class="btn btn-sm btn-outline-dark "><i class="fa fa-plus" aria-hidden="true"></i>
+                        Add notes</a>
+                    </div>
+                    <h4>Past Notes</h4>
+                    <div class="list-group card">
+                      <a href="#" class="list-group-item bg-success text-white">
+                        <h6 class="list-group-item-heading">Earliest created notes</h6>
+                      </a>
+                      {% if past_notes %}
+                        {% for note in past_notes %}
+                        <div class="p-2 bg-light ">
+                          <a href="/notes/{{note.id}}"><span class="h6">{{note.title}}</span> created: <span class="font-italic">{{ note.date }}</span> </a>
+                        </div>
+                        {% endfor %}
+                      {% else %}
+                          <div class="alert alert-info mt-5 text-italic">
+                              You have no notes at the moment
+                          </div>
+                      {% endif %} 
+                </div>  
+                <div class="container mt-4 pt-4">
+                  <h3>Follow Us</h3>
+                  <div class="social">
+                    <a href="https://www.facebook.com/koechkelvin97" target="_blank"><i class="fa fa-2x fa-facebook-square"></i></a>
+                    <a href="https://www.linkedin.com/in/kelvin-koech-b4b8a514a/" target="_blank"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                    <a href="https://mobile.twitter.com/triplek254" target="_blank"><i class="fa fa-2x fa-twitter-square"></i></a>
+                    <a href="https://github.com/k-koech" target="_blank"><i class="fa fa-2x fa-github-square"></i></a>
                   </div>
                 </div>
-      
-                <div class="form-group mt-2">
-                  <div class="col-sm-12 " style="display: flex;justify-content: right;">
-                    <button type="submit" class="btn btn-sm btn-secondary">Join Us</button>
-                  </div>
-      
-                </div>
-              </form>
-      
-      
-            </div>
-      
-            <h4>Past Notes</h4>
-            <div class="list-group">
-              <a href="#" class="list-group-item active">
-                <h5 class="list-group-item-heading">The first notes to be created</h5>
-                <p class="list-group-item-text">
-                 
-                </p>
-              </a>
-              {% if past_notes %}
-                {% for note in past_notes %}
-                <div class="p-2 bg-light ">
-                    <a href="/notes/{{note.id}}"><span class="h6">{{note.title}}</span> created: <span class="font-italic">{{ note.date }}</span> </a>
-                </div>
-                {% endfor %}
-              {% else %}
-                  <div class="alert alert-info mt-5 text-italic">
-                      You have no notes at the moment
-                  </div>
-               {% endif %}
-              
-            </div>
-      
-      
-      
-      
-      
-      
-      <div class="container mt-4">
-      <h3>Follow Us</h3>
-      <div class="social">
-        <a href=""><i class="fa fa-3x fa-facebook-square"></i></a>
-        <a href=""><i class="fa fa-3x fa-twitter-square"></i></a>
-        <a href=""><i class="fa fa-3x fa-linkedin-square"></i></a>
-        <a href=""><i class="fa fa-3x fa-google-plus-square"></i></a>
-      </div>
-        
-      </div>
-      </aside>
+           </aside>
+          
+          
 
 
 

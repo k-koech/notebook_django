@@ -42,37 +42,35 @@
                 <div class="tab-content profile-tab  mb-5" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>UserName</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{ user.username }}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{ user.email }}</p>
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>UserName</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ user.username }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ user.email }}</p>
+                            </div>
+                        </div>
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Receive Emails</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        {% if user.subscribe %}
-                                        <input type="checkbox" type="submit"  onclick="subscribe()" class="form-check-input" checked>
-                                        {% else %}
-                                        <input type="checkbox" type="submit"  onclick="subscribe()" class="form-check-input" unchecked>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                
-                
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Receive Emails</label>
+                            </div>
+                            <div class="col-md-6">
+                                {% if user.subscribe %}
+                                <input type="checkbox" type="submit"  onclick="subscribe()" class="form-check-input" checked>
+                                {% else %}
+                                <input type="checkbox" type="submit"  onclick="subscribe()" class="form-check-input" unchecked>
+                                {% endif %}
+                            </div>
+                        </div>                
                     </div>
                  
                 </div>
