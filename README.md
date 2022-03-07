@@ -16,12 +16,13 @@
 
 ## BDD
     As a user I should;
-    - Signup and login in the site
+    - Signup and login to the site
     - Reset password and update password by sending an email
     - Create, update and delete notes
     - View my notes
     - Update profile picture
     - Subscribe and subscribe to emails.
+    - Send emmails reqularly depending on subscription
   
     
 ## Live link
