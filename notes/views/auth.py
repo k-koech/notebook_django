@@ -134,7 +134,7 @@ def profile(request):
                 return redirect(profile)
 
     else:
-        count_notes = Notes.objects.filter(id=request.user.id).count()
+        count_notes = Notes.objects.filter(user=request.user).count()
         return render(request, "profile.html", {"count_notes":count_notes})
 
             
