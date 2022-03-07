@@ -67,10 +67,19 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>User Id</label>
+                                        <label>Receive Emails</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>Kshiti123</p>
+                                        <form action="/profile" method="post" >
+                                            {% csrf_token %}
+                                            <div class="mb-3 form-check">
+                                                <input type="hidden" name="check" value="false" />
+                                                <input type="checkbox" type="submit" class="form-check-input"  name="subscribe">
+                                            </div>
+                                            <button name="user" value="subscribe_emails" type="submit" class="btn btn-primary">Update</button>
+
+                                        </form>
+
                                     </div>
                                 </div>
                                 

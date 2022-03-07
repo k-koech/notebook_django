@@ -65,5 +65,6 @@ class Users(AbstractBaseUser):
 class Notes(models.Model):
     title = models.CharField(max_length=50)
     notes = models.CharField(max_length=1000)
+    subscribe = models.BooleanField(default=False)
     user=models.ForeignKey("Users",on_delete=models.CASCADE)
     date = models.DateTimeField(verbose_name='date', auto_now_add=True)

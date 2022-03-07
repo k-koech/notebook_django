@@ -131,6 +131,14 @@ def profile(request):
                 user.profile_photo=profile_photo
                 user.save()
                 return redirect(profile)
+                
+            elif 'subscribe_emails' == request.POST.get('user'): 
+                profile_photo=request.FILES.get('profile_photo')
+
+                note = Notes.objects.get(user=request.user)
+                note.subscribe=True
+                note.save()   
+                return redirect(profile)
 
     else:
         count_notes = Notes.objects.filter(user=request.user).count()

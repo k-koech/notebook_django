@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'assets/css/notes.css' %}">
- <div class="notes mt-5 pt-5">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/dashboard.css' %}">
+ <div class="dashboard mt-5 pt-5">
     <div class="container">
 
         <div class="page-header">
@@ -65,7 +65,7 @@
             <h4>Past Notes</h4>
             <div class="list-group">
               <a href="#" class="list-group-item active">
-                <h4 class="list-group-item-heading">List group item heading</h4>
+                <h5 class="list-group-item-heading">The first notes to be created</h5>
                 <p class="list-group-item-text">
                  
                 </p>
@@ -73,7 +73,7 @@
               {% if past_notes %}
                 {% for note in past_notes %}
                 <div class="p-2 bg-light ">
-                    <span class="h6">{{note.title}}</span> created: <span class="font-italic">{{ note.date }}</span> 
+                    <a href="/notes/{{note.id}}"><span class="h6">{{note.title}}</span> created: <span class="font-italic">{{ note.date }}</span> </a>
                 </div>
                 {% endfor %}
               {% else %}
