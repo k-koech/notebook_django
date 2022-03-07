@@ -5,16 +5,14 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'assets/css/profile.css' %}">
 
-<div class="container emp-profile">
+<div class="container emp-profile ">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img p-3">
                     <img src="{{user.profile_photo.url}}" alt=""/>
                     <div class="file btn btn-lg btn-primary" data-toggle="modal" data-target="#profilephoto">
                         Change Photo
-                    </div>
-
-                  
+                    </div>                  
                 </div>
             </div>
             <div class="col-md-6">

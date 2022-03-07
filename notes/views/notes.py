@@ -7,8 +7,6 @@ from notes.models import Notes
 def dashboard(request):
     notes = Notes.objects.filter(user=request.user)
     past_notes = Notes.objects.order_by('-date')
-
-    print(notes)
     return render(request, "dashboard.html",{"notes":notes, "past_notes":past_notes})
 
 @login_required(login_url='/signin')
@@ -45,7 +43,8 @@ def update_notes(request, id):
 @login_required(login_url='/signin')
 def notes(request, id):
         notes = Notes.objects.get(user=request.user, id=id)
-        return render(request, "notes.html", {"notes":notes})
+        past_notes = Notes.objects.order_by('-date')
+        return render(request, "notes.html", {"notes":notes, "past_notes":past_notes})
 
 @login_required(login_url='/signin')
 def delete_notes(request, id):

@@ -4,16 +4,15 @@
   }
 
   
-
 body{
     background-color: #e7e7e7;
 }
 
 .emp-profile{
     padding: 3%;
-    margin-top: 3%;
+    margin-top: 5em !important;
     margin-bottom: 3%;
-    border-radius: 0.5rem;
+    border-radius: 0.8rem;
     background: rgb(255, 255, 255);
 }
 .profile-img{

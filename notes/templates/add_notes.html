@@ -5,14 +5,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'assets/css/add_notes.css' %}">
  <div class="container-fluid add_notes mt-5 pt-5">
    
-  <form action="/add_notes" method="post" class="decor">
+  <form action="/add_notes" method="post" class="decor card mt-4 mb-4">
     {% csrf_token %}
     <div class="form-left-decoration"></div>
     <div class="form-right-decoration"></div>
     <div class="circle"></div>
     <div class="form-inner">
       <h1>Add notes</h1>
-      <input type="text" name="title" placeholder="title">
+      <input type="text" name="title" placeholder="title" required>
       <textarea name="description" placeholder="Description..." rows="5"></textarea>
       <button type="submit">Submit</button>
     </div>
